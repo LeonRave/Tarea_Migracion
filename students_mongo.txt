@@ -1,0 +1,104 @@
+db.students.insert({name: 'alejandro', 
+age: 25,
+dir: 'martin carrera 58-13',
+colors: ['green', 'black', 'red'],
+accounts: [6000, 7000, 8000, 9000, 10000],
+pets: [{nombre:'docker', especie:'pez', raza:'payaso', age: 1},{nombre:'ubuntu', especie:'pinguino', raza: 'emperador', age: 8}],
+nationality:'mexican'
+})
+db.students.insert({name: 'iris', 
+age: 18,
+dir: 'martin carrera, valentin canalizo 67',
+colors: ['blue', 'yellow', 'green', 'white'],
+accounts: [5000, 2000, 3000, 4000, 2000],
+pets: [{nombre:'max', especie:'perro', raza:'pastor aleman', age: 7},{nombre:'chuke', especie:'perro', raza:'salchicha', age: 8}],
+nationality:'mexican'
+})
+db.students.insert({name: 'andres', 
+age: 26,
+dir: 'salvador diaz miron 69',
+colors: ['gray', 'pink', 'blue', 'red', 'white'],
+accounts: [3000, 8000, 11000],
+pets: [{nombre:'spike', especie:'tortuga', raza:'tierra', age: 101}],
+nationality:'spanish'
+})
+db.students.insert({name: 'hugo', 
+age: 28,
+dir: 'ferrocaril hidalgo 104',
+colors: ['pink', 'blue', 'green'],
+accounts: [5000, 9000, 10000],
+pets: [{nombre:'ron', especie:'gato', raza:'payaso', age: 3},{nombre:'perro', especie:'perro',      raza:'dobberman', age: 5},{nombre:'tweety', especie:'ave', raza:'canario', age: 6}],
+nationality:'french'
+})
+db.students.insert({name: 'miguel', 
+age: 22,
+dir: 'pedro negrete 456',
+colors: ['green', 'black', 'red'],
+accounts: [1000, 2000, 3000, 4000],
+pets: [{nombre:'milo', especie:'oso', raza:'pardo', age: 18}],
+nationality:'chinese'
+})
+db.students.insert({name: 'jessica', 
+age: 19,
+dir: 'mariquita sanchez 22',
+colors: ['blue', 'gray', 'brown'],
+accounts: [2000, 7000, 3000],
+pets: [{nombre:'lucas', especie:'ave', raza:'perico', age: 6}],
+nationality:'spanish'
+})
+db.students.insert({name: 'sasha', 
+age: 25,
+dir: 'av. simepre viva 34-4',
+colors: ['pink', 'blue', 'yellow'],
+accounts: [6000, 7000, 8000, 9000],
+pets: [{nombre:'lilo', especie:'gato', raza:'persa', age: 9},{nombre:'ruber', especie:'gato',      raza:'persa', age: 9}],
+nationality:'german'
+})
+db.students.insert({name: 'james', 
+age: 31,
+dir: 'filadelfia 123',
+colors: ['black', 'white', 'gray'],
+accounts: [10000, 11000, 12000],
+pets: [{nombre:'zoo', especie:'ave', raza:'tucan', age: 3}],
+nationality:'mexican'
+})
+db.students.insert({name: 'sakura', 
+age: 28,
+dir: 'av. san lucas 1001',
+colors: ['pink', 'black', 'blue', 'green'],
+accounts: [11000, 5000, 20000],
+pets: [{nombre:'shu', especie:'gato', raza:'siames', age: 11}],
+nationality:'japanese'
+})
+db.students.insert({name: 'jorge', 
+age: 24,
+dir: 'av patriotismo 5-12',
+colors: ['red', 'black', 'white'],
+accounts: [4000, 5000, 8000, 9000],
+pets: [{nombre:'robert', especie:'perro', raza:'dalmata', age: 5},{nombre:'lili', especie:'perro',      raza:'chihuahua', age: 4}],
+nationality:'mexican'
+});
+
+Los nombres de los estudiantes con perros y el nombre de sus perros
+db.students.find({"pets.especie":"perro"}, {name:1,"pets.nombre":1, _id:0}).pretty()
+
+Los nombres de los estudiantes con 2 mascotas y el nombre de estas
+db.students.find({pets:{$size:2}}, {name:1,"pets.nombre":1, _id:0}).pretty()
+
+Cuantas mascotas tienen cada persona
+db.students.aggregate(
+   [
+      {$project: {name: 1, cantidadmascotas: { $size: "$pets"} }}.pretty()
+   ]
+)
+
+Cuantos alumnos hay de cada nacionalidad
+db.students.aggregate([                                
+                        {$group:                         // en este caso solo una operación, agrupar
+                               { _id:"$nationality",         // agrupamos por nacionalidad
+                                 num_personas: {$sum:1}  // cuenta el num.elementos en el grupo
+                               }                        } 
+                       ]
+                     ).pretty()
+
+db.students.find({pets:$gte:{$size:5}})

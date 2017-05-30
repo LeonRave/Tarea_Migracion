@@ -1,0 +1,91 @@
+db.runCommand( {
+   collMod: "students",
+   validator: { $and: [ 
+			{ name: { $exists: true } },
+                        {"age":{$gte: 10, $lte: 100}},
+			{"dir": {$exists: true} },
+		        {"colors": {$exists: true} },
+		        {"pets":{$exists: true} },
+		        {"nationality":{$type: "string"} }
+	             ] 
+              },
+   validationLevel: "moderate",
+   validationAction: "warn"
+} )
+
+db.students.insert({name: 'roger', 
+age: 130,
+dir: 'miguel hidalgo 58-23',
+colors: ['green', 'white', 'red'],
+accounts: [6000, 8000],
+pets: [{nombre:'susi', especie:'pez', raza:'payaso', age: 1},{nombre:'moni', especie:'pinguino', raza: 'emperador', age: 8}],
+nationality:'american'
+})
+
+db.students.update({name:'roger'}, 
+{name: 'roger', 
+age: 130,
+dir: 'miguel hidalgo 58-23',
+colors: ['green', 'white', 'red'],
+accounts: [6000, 8000],
+pets: [{nombre:'susi', especie:'pez', raza:'payaso', age: 1},{nombre:'moni', especie:'pinguino', raza: 'emperador', age: 8}],
+nationality:'american'
+})
+
+db.adminCommand({getLog: "global" })
+
+
+db.runCommand( {
+   collMod: "users",
+   validator: { $and: [ 
+			    {"_id":{$type: "double"} },
+			    {"age":{$gte: 10, $lte: 100} },
+			    {"type": {$type: "double"} },
+			    {"status": {$type: "string"} },
+			    {"favorites":{$exists: true} },
+			    {"finished":{$exists: true} },
+			    {"badges":{$exists: true} },
+			    {"points":{$exists: true} }
+	             ] 
+              }
+} )
+
+db.users.insert(
+     {
+       _id: 20,
+       name: "black",
+       age: 18,
+       type: 1,
+       status: "P",
+       favorites: { artist: "Picasso", food: "pizza" },
+       finished: [ 17, 3 ],
+       badges: [ "blue", "black" ],
+       points: [
+          { points: 85, bonus: 20 },
+          { points: 85, bonus: 10 }]
+     })
+
+db.users.update({name:"black"},
+     {
+       _id: 20,
+       name: "black",
+       age: 101,
+       type: 1,
+       status: "P",
+       favorites: { artist: "Picasso", food: "pizza" },
+       finished: [ 17, 3 ],
+       badges: [ "blue", "black" ],
+       points: [
+          { points: 85, bonus: 20 },
+          { points: 85, bonus: 10 }]
+     })
+
+
+https://medium.com/@gargar454/deploy-a-mesos-cluster-with-7-commands-using-docker-57951e020586
+https://github.com/sekka1/mesosphere-docker#multi-node-setup
+https://github.com/mesosphere/docker-containers/tree/master/mesos ***
+http://lifeandshell.com/mesos-cluster-with-marathon-running-docker/ *
+http://davidssysadminnotes.blogspot.mx/2016/06/setting-up-apache-mesos-cluster-centos-7.html
+https://www.digitalocean.com/community/tutorials/how-to-configure-a-production-ready-mesosphere-cluster-on-ubuntu-14-04 *
+http://www.bogotobogo.com/DevOps/DevOps_Mesos_Install.php *
+http://container-solutions.com/containerized-mesos-cluster/ **

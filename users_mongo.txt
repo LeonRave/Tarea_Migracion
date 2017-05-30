@@ -1,0 +1,246 @@
+db.users.insertMany(
+  [
+     {
+       _id: 1,
+       name: "sue",
+       age: 19,
+       type: 1,
+       status: "P",
+       favorites: { artist: "Picasso", food: "pizza" },
+       finished: [ 17, 3 ],
+       badges: [ "blue", "black" ],
+       points: [
+          { points: 85, bonus: 20 },
+          { points: 85, bonus: 10 }
+       ]
+     },
+     {
+       _id: 2,
+       name: "bob",
+       age: 42,
+       type: 1,
+       status: "A",
+       favorites: { artist: "Miro", food: "meringue" },
+       finished: [ 11, 25 ],
+       badges: ["green"],
+       points: [
+          { points: 85, bonus: 20 },
+          { points: 64, bonus: 12 }
+       ]
+     },
+     {
+       _id: 3,
+       name: "ahn",
+       age: 22,
+       type: 2,
+       status: "A",
+       favorites: { artist: "Cassatt", food: "cake" },
+       finished: [ 6 ],
+       badges: [ "blue", "red" ],
+       points: [
+          { points: 81, bonus: 8 },
+          { points: 55, bonus: 20 }
+       ]
+     },
+     {
+       _id: 4,
+       name: "xi",
+       age: 34,
+       type: 2,
+       status: "D",
+       favorites: { artist: "Chagall", food: "chocolate" },
+       finished: [ 5, 11 ],
+       badges: [ "red", "black" ],
+       points: [
+          { points: 53, bonus: 15 },
+          { points: 51, bonus: 15 }
+       ]
+     },
+     {
+       _id: 5,
+       name: "xyz",
+       age: 23,
+       type: 2,
+       status: "D",
+       favorites: { artist: "Noguchi", food: "nougat" },
+       finished: [ 14, 6 ],
+       badges: [ "orange" ],
+       points: [
+          { points: 71, bonus: 20 }
+       ]
+     },
+     {
+       _id: 6,
+       name: "abc",
+       age: 43,
+       type: 1,
+       status: "A",
+       favorites: { food: "pizza", artist: "Picasso" },
+       finished: [ 18, 12 ],
+       badges: [ "black", "blue" ],
+       points: [
+          { points: 78, bonus: 8 },
+          { points: 57, bonus: 7 }
+       ]
+     },
+     {  
+       _id: 7,
+       name: "alejandro",
+       age: 25,
+       type: 2,
+       status: "C",
+       favorites: { artist: "Milo", food: "sushi" },
+       finished: [ 12, 4 ],
+       badges: [ "white", "green","blue"],
+       points: [
+          { points: 85, bonus: 20 },
+          { points: 54, bonus: 11 },
+          { points: 99, bonus: 16 },
+          { points: 34, bonus: 18 }
+       ]
+     },
+     {
+       _id: 8,
+       name: "andrea",
+       age: 22,
+       type: 3,
+       status: "A",
+       favorites: { artist: "Michael", food: "chocolate" },
+       finished: [ 16, 23 ],
+       badges: [ "red" ],
+       points: [
+          { points: 89, bonus: 18 },
+	  { points: 89, bonus: 14 },
+          { points: 69, bonus: 14 }
+       ]
+     },
+     {
+       _id: 9,
+       name: "rudolf",
+       age: 32,
+       type: 4,
+       status: "B",
+       favorites: { artist: "Robert", food: "pizza" },
+       finished: [ 6,4,6],
+       badges: [ "blue", "red", "yellow", "gray"  ],
+       points: [
+          { points: 13, bonus: 18 },
+          { points: 23, bonus: 11 },
+	  { points: 13, bonus: 18 },
+          { points: 23, bonus: 21 }
+       ]
+     },
+     {
+       _id: 10,
+       name: "wow",
+       age: 31,
+       type: 3,
+       status: "A",
+       favorites: { artist: "Chong", food: "hot-cakes" },
+       finished: [ 5, 11 ],
+       badges: [ "red", "black" ],
+       points: [
+          { points: 65, bonus: 12 }
+       ]
+     },
+     {
+       _id: 11,
+       name: "grey",
+       age: 23,
+       type: 3,
+       status: "D",
+       favorites: { artist: "Ranma", food: "eggs" },
+       finished: [ 14, 6 ],
+       badges: [ "orange", "red", "black", "blue"],
+       points: [
+          { points: 78, bonus: 30 }
+       ]
+     },
+     {
+       _id: 12,
+       name: "leon",
+       age: 28,
+       type: 1,
+       status: "A",
+       favorites: { food: "sausaches", artist: "Pikachu" },
+       finished: [ 18, 12 ],
+       badges: [ "green", "red", "purple", "blue" , "gray", "white" ],
+       points: [
+          { points: 58, bonus: 18 },
+          { points: 57, bonus: 17 },
+	  { points: 48, bonus: 18 },
+          { points: 57, bonus: 17 },
+	  { points: 48, bonus: 18 },
+          { points: 70, bonus: 18 }
+       ]
+     },
+     {
+       _id: 13,
+       name: "iris",
+       age: 22,
+       type: 5,
+       status: "C",
+       favorites: { artist: "Cuno", food: "wine" },
+       finished: [ 11, 3 ],
+       badges: [ "green", "white", "black"],
+       points: [
+          { points: 98, bonus: 20 }
+       ]
+     },
+     {
+       _id: 14,
+       name: "robert",
+       age: 100,
+       type: 5,
+       status: "C",
+       favorites: { food: "chetoos", artist: "bruce" },
+       finished: [ 18, 12, 12, 11 ],
+       badges: [ "pink", "red", "gray", "white" ],
+       points: [
+          { points: 68, bonus: 13 },
+          { points: 77, bonus: 13 },
+	  { points: 78, bonus: 14 },
+          { points: 77, bonus: 17 },
+	  { points: 78, bonus: 18 }
+       ]
+     },
+     {
+       _id: 15,
+       name: "robert",
+       age: 19,
+       type: 2,
+       status: "E",
+       favorites: { artist: "Achu", food: "cocacola" },
+       finished: [ 14, 6 ],
+       badges: [ "yellow", "pink", "red"],
+       points: [
+          { points: 78, bonus: 30 }
+       ]
+     },
+     {
+       _id: 16,
+       name: "saira",
+       age: 24,
+       type: 4,
+       status: "C",
+       favorites: { food: "pig", artist: "beatles" },
+       finished: [ 38, 22, 21, 23 ],
+       badges: [ "blue", "red", "purple", "pink" , "orange", "white" ],
+       points: [
+          { points: 48, bonus: 11 },
+          { points: 47, bonus: 11 },
+	  { points: 28, bonus: 11 },
+          { points: 87, bonus: 11 },
+	  { points: 88, bonus: 11 }
+       ]
+     }
+  ]
+)
+
+#Cantidad de usuarios por color
+db.users.aggregate([{$project:{name:1, badges:1, _id:0}},{$unwind:"$badges"}, {$group:{_id:"$badges", cantidad:{$sum:1}} } ])
+
+#Total de finished por tipo
+db.users.aggregate([{$project:{type:1, finished:1, _id:0}},{$unwind:"$finished"},{$group:{_id:"$type",total:{$sum:"$finished"}}} ])
+
+
